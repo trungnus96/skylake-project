@@ -29,7 +29,7 @@ This group project is about to build a web management console to manage the adve
 ### Install
 ```
 npm install
-npm install aws-sdk
+npm install aws-sdk --save
 ```
 
 ### Run

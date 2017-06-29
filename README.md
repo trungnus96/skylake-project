@@ -54,4 +54,4 @@ npm start
 * [Angular2 Course](https://www.udemy.com/angular-crash-course-for-beginners/?couponCode=NG4CC_YOUTUB) - The course I took to learn Angular2
 
 ### More about this project?
-* [Check this out](http://trungnguyen96.com/projects/bluetooth-advertising-framework/)
+* [Check this out](http://trungnguyen96.com)

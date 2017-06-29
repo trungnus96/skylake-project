@@ -1,0 +1,37 @@
+<div class="col-xs-8">
+    <form [ngFormModel]="form" (ngSubmit)="updateEmail()">
+        <div class="form-group">
+            <div>
+                <h5>Current Password</h5>
+            </div>
+            <input placeholder="Current Password" ngControl="currentPassword" id="currentPassword" #currentPassword="ngForm" type="password"
+                class="form-control">
+            <div *ngIf="currentPassword.touched && currentPassword.errors">
+                <div *ngIf="currentPassword.errors.required" class="alert alert-danger">
+                    Current password is required.
+                </div>
+                <div *ngIf="currentPassword.errors.validOldPassword" class="alert alert-danger">
+                    Current password is incorrect.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <h5>New Email</h5>
+            </div>
+            <input placeholder="New Email" ngControl="newEmail" id="newEmail" #newEmail="ngForm" type="text" class="form-control">
+            <div *ngIf="newEmail.touched && newEmail.errors">
+                <div *ngIf="newEmail.errors.required" class="alert alert-danger">New email is required.</div>
+                <div *ngIf="newEmail.errors.oldEmail" class="alert alert-danger">New email already exists.</div>
+            </div>
+        </div>
+        <div class="row">
+            <span style="margin-left: 15px">
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid || isLoading">
+                    <div *ngIf="!isLoading">Update</div>
+                    <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-2x"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+</div>

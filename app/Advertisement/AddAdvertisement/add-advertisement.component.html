@@ -1,0 +1,106 @@
+<div class="panel-body">
+    <form [ngFormModel]="form" (ngSubmit)="addAdvertisement()">
+        <div class="form-group">
+            <div class="row">
+                <label for="id" class="col-xs-5 control-label text-right">New Advertisement ID</label>
+                <div class="col-xs-7">
+                    <input placeholder="Enter New Adv ID" ngControl="id" #id="ngForm" id="id" type="text" class="form-control">
+                    <div *ngIf="id.touched && id.errors">
+                        <div *ngIf="id.errors.required" class="alert alert-danger">Adv ID is required.</div>
+                        <div *ngIf="id.errors.oldAdvertisement" class="alert alert-danger">Advertisement ID already exists.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="adName" class="col-xs-5 control-label text-right">Name</label>
+                <div class="col-xs-7">
+                    <input placeholder="Advertisement Name" ngControl="adName" #adName="ngForm" id="name" type="text" class="form-control">
+                    <div *ngIf="adName.touched && adName.errors">
+                        <div *ngIf="adName.errors.required" class="alert alert-danger">Adv Name is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="price" class="col-xs-5 control-label text-right">Price (A$)</label>
+                <div class="col-xs-7">
+                    <input placeholder="Price" ngControl="price" #price="ngForm" id="price" type="number" class="form-control">
+                    <div *ngIf="price.touched && price.errors">
+                        <div *ngIf="price.errors.required" class="alert alert-danger">Price is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="discountPrice" class="col-xs-5 control-label text-right">Discount Price (A$)</label>
+                <div class="col-xs-7">
+                    <input placeholder="Discount Price" ngControl="discountPrice" #discountPrice="ngForm" id="discountPrice" type="number" class="form-control">
+                    <div *ngIf="discountPrice.touched && discountPrice.errors">
+                        <div *ngIf="discountPrice.errors.required" class="alert alert-danger">Discount Price is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="beaconid" class="col-xs-5 control-label text-right">Beacon ID</label>
+                <div class="col-xs-7">
+                    <input placeholder="Beacon ID" ngControl="beaconid" #beaconid="ngForm" id="beaconid" type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="adDesc" class="col-xs-5 control-label text-right">Description</label>
+                <div class="col-xs-7">
+                    <input placeholder="Description" ngControl="adDesc" #adDesc="ngForm" id="adDesc" type="text" class="form-control">
+                    <div *ngIf="adDesc.touched && adDesc.errors">
+                        <div *ngIf="adDesc.errors.required" class="alert alert-danger">Description is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="expiryDate" class="col-xs-5 control-label text-right">Expiry Date
+                    <div>(dd/mm/yyyy)</div>
+                </label>
+                <div class="col-xs-7">
+                    <input placeholder="Expiry Date" ngControl="expiryDate" #expiryDate="ngForm" id="expiryDate" type="text" class="form-control">
+                    <div *ngIf="expiryDate.touched && expiryDate.errors">
+                        <div *ngIf="expiryDate.errors.required" class="alert alert-danger">Expiry Date is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="advertisementCount" class="col-xs-5 control-label text-right">Impression Count</label>
+                <div class="col-xs-7">
+                    <input placeholder="Count" ngControl="advertisementCount" #advertisementCount="ngForm" [(ngModel)]="advertisement.advertisementCount"
+                        id="advertisementCount" type="text" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="imgUrl" class="col-xs-5 control-label text-right">Image</label>
+                <div class="col-xs-7">
+                    <input type="file" ngControl="imgUrl" #imgUrl="ngForm" id="imgUrl" class="form-control" (change)="fileEvent($event)" />
+                </div>
+            </div>
+        </div>
+        <div>
+            <span style="margin-left: 45%">
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid || isLoading">
+                    <div *ngIf="!isLoading">Add</div>
+                    <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-2x"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+</div>

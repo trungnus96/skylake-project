@@ -1,0 +1,92 @@
+<div class="panel-body">
+    <form [ngFormModel]="form">
+        <div class="form-group">
+            <div class="row">
+                <label for="id" class="col-xs-5 control-label text-right">Advertisement ID</label>
+                <div class="col-xs-7">
+                    <input placeholder="Enter New Adv ID" [(ngModel)]="advertisement.id" ngControl="id" #id="ngForm" id="id" type="text" class="form-control"
+                        readonly>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="adName" class="col-xs-5 control-label text-right">Name</label>
+                <div class="col-xs-7">
+                    <input placeholder="Advertisement Name" [(ngModel)]="advertisement.adName" ngControl="adName" #adName="ngForm" id="name"
+                        type="text" class="form-control" readonly>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="price" class="col-xs-5 control-label text-right">Price (A$)</label>
+                <div class="col-xs-7">
+                    <input placeholder="Price" [(ngModel)]="advertisement.price" ngControl="price" #price="ngForm" id="price" type="number" class="form-control"
+                        readonly>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="discountPrice" class="col-xs-5 control-label text-right">Discount Price (A$)</label>
+                <div class="col-xs-7">
+                    <input placeholder="Discount Price" [(ngModel)]="advertisement.discountPrice" ngControl="discountPrice" #discountPrice="ngForm"
+                        id="discountPrice" type="text" class="form-control" readonly>
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="beaconid" class="col-xs-5 control-label text-right">Beacon ID</label>
+                <div class="col-xs-7">
+                    <input placeholder="Beacon ID" [(ngModel)]="advertisement.beaconid" ngControl="beaconid" #beaconid="ngForm" id="beaconid"
+                        type="text" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="adDesc" class="col-xs-5 control-label text-right">Description</label>
+                <div class="col-xs-7">
+                    <input placeholder="Description" [(ngModel)]="advertisement.adDesc" ngControl="adDesc" #adDesc="ngForm" id="adDesc" type="text"
+                        class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="expiryDate" class="col-xs-5 control-label text-right">Expiry Date
+                    <div>(dd/mm/yyyy)</div>
+                </label>
+                <div class="col-xs-7">
+                    <input placeholder="Expiry Date" [(ngModel)]="advertisement.expiryDate" ngControl="expiryDate" #expiryDate="ngForm" id="expiryDate" type="text"
+                        class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="advertisementCount" class="col-xs-5 control-label text-right">Impression Count</label>
+                <div class="col-xs-7">
+                    <input  placeholder="Impression Count" [(ngModel)]="advertisement.advertisementCount" ngControl="advertisementCount" #adDesc="ngForm" id="advertisementCount"
+                        type="text" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="imgUrl" class="col-xs-5 control-label text-right">Image</label>
+                <div class="col-xs-7">
+                    <input  placeholder="Image" [(ngModel)]="advertisement.imgUrl" ngControl="imgUrl" #adDesc="ngForm" id="imgUrl"
+                        type="text" class="form-control" readonly>
+                    <img id="imgUrl" src="{{advertisement.imgUrl}}" height="150" width="150">
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

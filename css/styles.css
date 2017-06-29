@@ -1,0 +1,185 @@
+.ng-touched.ng-invalid
+{
+    border: 1.5px solid red;
+}
+
+
+table.a {
+    counter-reset: rowNumber;
+}
+
+table.a tr:not(:first-child) {
+    counter-increment: rowNumber;
+}
+
+table.a tr td:first-child::before {    
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+.gi-2x
+{
+    font-size: 1.5em;
+}
+
+/*login*/
+.alignLogin
+{
+    margin-left: 350px;
+    margin-top: 100px; 
+}
+.alignLoginButton
+{
+    margin-left: 282px;
+    margin-top: 10px; 
+}
+img.a
+{
+    margin-left: 650px;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin: -100px 0px 0px 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.huge {
+    font-size: 40px;
+}
+
+.panel.panel-1 {
+    border: 1px solid #34495e;
+}
+
+.panel-1 > .panel-heading {
+    border-color: #34495e;
+    color: #fff;
+    background-color: #34495e;
+}
+
+.panel-1 > a {
+    color: #34495e;
+}
+
+.panel-1 > a:hover {
+    color: #2c3e50;
+}
+
+.panel.panel-2 {
+    border: 1px solid #3498db;
+}
+
+.panel-2 > .panel-heading {
+    border-color: #3498db;
+    color: #fff;
+    background-color: #3498db;
+}
+
+.panel-2 > a {
+    color: #3498db;
+}
+
+.panel-2 > a:hover {
+    color: #2980b9;
+}
+
+.panel.panel-3 {
+    border: 1px solid #1abc9c;
+}
+
+.panel-3 > .panel-heading {
+    border-color: #1abc9c;
+    color: #fff;
+    background-color: #1abc9c;
+}
+
+.panel-3 > a {
+    color: #1abc9c;
+}
+
+.panel-3 > a:hover {
+    color: #16a085;
+}
+
+
+.panel.panel-4 {
+    border: 1px solid #9b59b6;
+}
+
+.panel-4 > .panel-heading {
+    border-color: #9b59b6;
+    color: #fff;
+    background-color: #9b59b6;
+}
+
+.panel-4 > a {
+    color: #9b59b6;
+}
+
+.panel-4 > a:hover {
+    color: #8e44ad;
+}
+
+
+
+
+
+.panel-primary > a:hover {
+    color: #2c3e50;
+}
+
+h1.page-header{
+    border-bottom: 1px solid lightgrey;
+}
+
+.style1
+{
+    margin-top: 10px;
+}
+
+.style1> a:hover{
+    color: #2c3e50;
+}
+
+td> a:hover{
+    color: #2c3e50;
+}
+th> a:hover{
+    color: #2c3e50;
+}
+
+.hu2
+{
+    margin: 15px 0 35px 0;
+}
+
+tr.pagination-control {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: red;
+}
+
+
+.footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}

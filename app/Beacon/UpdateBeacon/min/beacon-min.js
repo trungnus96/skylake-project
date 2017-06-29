@@ -1,0 +1,1 @@
+System.register([],function(t,e){"use strict";var n=e&&e.id,r;return{setters:[],execute:function(){r=function(){function t(){}return t}(),t("Beacon",r)}}});

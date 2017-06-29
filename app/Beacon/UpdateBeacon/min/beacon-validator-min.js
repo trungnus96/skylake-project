@@ -1,0 +1,1 @@
+System.register([],function(n,e){"use strict";var t=e&&e.id,r;return{setters:[],execute:function(){r=function(){function n(){}return n.oldBeacon=function(n){var e=n;if(null!=e)return"12AB"==e.value?{oldBeacon:!0}:void 0},n}(),n("BeaconValidator",r)}}});

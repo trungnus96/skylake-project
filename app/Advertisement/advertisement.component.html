@@ -1,0 +1,98 @@
+<!--<div class="row">
+    <div class="col-lg-12">
+        <div class="alert alert-info alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <i class="fa fa-info-circle"></i> Click <strong>"Detail"</strong> to view full information about desired advertisement
+        </div>
+    </div>
+</div>-->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Advertisement <small>Management</small>
+            </h1>
+        </div>
+    </div>
+    <div *ngIf = "isLoading">
+        <i class="fa fa-spinner fa-spin fa-5x"></i>
+    </div>
+    <div *ngIf = "!isLoading" class="col-lg-6">
+        <div class="table-responsive">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="form-group has-feedback" style="width: 120px">
+                                <input type="text" class="form-control" [(ngModel)]="searchByAdId" placeholder="Ad ID" />
+                                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                            </div>
+                        </th>
+                        <th>
+                            <div class="form-group has-feedback" style="width: 150px">
+                                <input type="text" class="form-control" [(ngModel)]="searchByBeaconId" placeholder="Beacon ID" />
+                                <i class="glyphicon glyphicon-search form-control-feedback"></i>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr *ngIf="isLoadingForDeleteAd">
+                        <span>Deleteing advertisement <i class="fa fa-spinner fa-spin fa-2x"></i></span>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr style="border-bottom: 1px solid lightgrey;">
+                        <th>Ad ID 
+                            <a *ngIf = "sortVariable == 0" (click) = "sortA()" class="fa fa-sort-alpha-asc" style="text-decoration: none;"></a>
+                            <a *ngIf = "sortVariable != 0" (click) = "sortD()" class="fa fa-sort-alpha-desc" style="text-decoration: none;"></a>
+                        </th>
+                        <th>Advertisement Name</th>
+                        <th>Beacon ID</th>
+                        <th></th>
+                        <th></th>
+                        <th><a (click)="addAdvertisement()"><span class="glyphicon glyphicon-plus-sign gi-2x"></span></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr></tr>
+                    <tr *ngFor="#advertisement of advertisements" style="border-bottom: 1px solid lightgrey;">
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase()) 
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())">{{advertisement.id}}</td>
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase())
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())">{{advertisement.adName}}</td>
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase())
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())">{{advertisement.beaconid}}</td>
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase())
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())"><a (click)="viewAdvertisement(advertisement.id)" style="text-decoration: none">Detail</a></td>
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase())
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())"><a (click)="updateAdvertisement(advertisement.id)"><span class="glyphicon glyphicon-edit"></span></a></td>
+                        <td *ngIf="advertisement.id.toString().toLocaleUpperCase().includes(searchByAdId.toLocaleUpperCase())
+                                    && advertisement.beaconid.toString().toLocaleUpperCase().includes(searchByBeaconId.toLocaleUpperCase())"><a (click)="deleteAdvertisement(advertisement)"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div *ngIf="tempVariable != 0" class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-2 glyphicon glyphicon-remove" (click)="close()"></div>
+                    <div class="col-xs-10 text-right">
+                        <div>{{title}}</div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="tempVariable == 1">
+                <add-advertisement></add-advertisement>
+            </div>
+            <div *ngIf="tempVariable == 2">
+                <update-advertisement></update-advertisement>
+            </div>
+            <div *ngIf="tempVariable == 3">
+                <view-advertisement></view-advertisement>
+            </div>
+        </div>
+    </div>
+</div>

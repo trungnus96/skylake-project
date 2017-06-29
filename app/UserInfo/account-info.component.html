@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Account <small>Overview</small>
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="text-center">
+                            <div  *ngIf = "!isLoading" class="huge">{{user.userName}}</div>
+                            <div *ngIf = "isLoading">
+                                <i class="fa fa-spinner fa-spin fa-4x"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" style="height: 184px;">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <img src="../../img/account.png" width="120" height="120">
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>Username</h4>
+                            <h4>Date of Birth</h4>
+                            <h4>Email</h4>
+                            <h4>Phone Number</h4>
+                        </div>
+                        <div *ngIf = "isLoading" class="col-md-5" style="text-align:center; font-size: 20px">
+                            <br>
+                            <i class="fa fa-spinner fa-spin fa-5x"></i>
+                        </div>
+                        <div *ngIf = "!isLoading" class="col-md-5 text-right">
+                            <h4>{{user.id}}</h4>
+                            <h4>{{user.dob}}</h4>
+                            <h4>{{user.email}}</h4>
+                            <h4>{{user.phone}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="glyphicon glyphicon-cog fa-4x"></span>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge">Settings</div>
+                            <div>{{title}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div *ngIf = "!isLoading" class="row">
+                        <div class="col-xs-4" style="border-right: 2px solid lightgrey;">
+                            <div class="style1">
+                                <a (click) = "pass()"><span class="pull-left">Change Password</span></a>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="style1">
+                                <a (click) = "email()"><span class="pull-left">Change Email</span></a>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="style1">
+                                <a (click) = "phone()"><span class="pull-left">Change Phone Number</span></a>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        
+                        <div *ngIf = "tempVariable != 0" class="col-xs-4">
+                                <button class="btn btn-primary" (click) = "back()">Back</button>
+                        </div>
+                        <div *ngIf = "tempVariable == 0" class="col-xs-8" style = "height: 153px">
+                            <div class = "text-center"> 
+                                <br>
+                                <span class="glyphicon glyphicon-cog fa-5x" style="color: lightgrey;"></span>
+                            </div>
+                        </div>
+                        <div *ngIf = "tempVariable == 1">
+                            <change-password></change-password>
+                        </div>
+                        <div *ngIf = "tempVariable == 2">
+                            <change-email></change-email>
+                        </div>
+                        <div *ngIf = "tempVariable == 3">
+                            <change-phone></change-phone>
+                        </div>
+                    </div>
+                    <div *ngIf = "isLoading" class="text-center" style="font-size: 30">
+                        <i class="fa fa-spinner fa-spin fa-5x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="panel-body">
+
+    <form [ngFormModel]="form" (ngSubmit)="updateBeacon()">
+        <div class="form-group">
+            <div class="row">
+                <label for="id" class="col-xs-5 control-label text-right">New beacon</label>
+                <div class="col-xs-7">
+                    <input placeholder="New Beacon ID" ngControl="id" #id="ngForm" [(ngModel)]="beacon.id" id="id" type="text" class="form-control"
+                        readonly>
+                    <div *ngIf="id.touched && id.errors">
+                        <div *ngIf="id.errors.required" class="alert alert-danger">Beacon ID is required.</div>
+                        <div *ngIf="id.errors.oldBeacon" class="alert alert-danger">Beacon ID already exists.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="beaconName" class="col-xs-5 control-label text-right">Beacon Name</label>
+                <div class="col-xs-7">
+                    <input placeholder="Beacon Name" ngControl="beaconName" #beaconName="ngForm" id="beaconName" [(ngModel)]="beacon.beaconName"
+                        type="text" class="form-control">
+                    <div *ngIf="beaconName.touched && beaconName.errors">
+                        <div *ngIf="beaconName.errors.required" class="alert alert-danger">Product Name is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="storeName" class="col-xs-5 control-label text-right">Store Name</label>
+                <div class="col-xs-7">
+                    <input placeholder="Store Name" ngControl="storeName" #storeName="ngForm" [(ngModel)]="beacon.storeName" id="storeName" type="text"
+                        class="form-control">
+                    <div *ngIf="storeName.touched && storeName.errors">
+                        <div *ngIf="storeName.errors.required" class="alert alert-danger">Store Name is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="beaconLocation" class="col-xs-5 control-label text-right">Location</label>
+                <div class="col-xs-7">
+                    <input placeholder="Location" ngControl="beaconLocation" #beaconLocation="ngForm" [(ngModel)]="beacon.beaconLocation" id="beaconLocation"
+                        type="text" class="form-control">
+                    <div *ngIf="beaconLocation.touched && beaconLocation.errors">
+                        <div *ngIf="beaconLocation.errors.required" class="alert alert-danger">Location is required.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <label for="beaconCount" class="col-xs-5 control-label text-right">Impression Count</label>
+                <div class="col-xs-7">
+                    <input placeholder="Impression Count" ngControl="beaconCount" #beaconCount="ngForm" [(ngModel)]="beacon.beaconCount" id="beaconCount"
+                        type="text" class="form-control" readonly>
+                </div>
+            </div>
+        </div>
+        <div>
+            <span style="margin-left: 45%">
+                <button class="btn btn-primary" type="submit" [disabled]="!form.valid || isLoading">
+                    <div *ngIf="!isLoading">Update</div>
+                    <i *ngIf="isLoading" class="fa fa-spinner fa-spin fa-2x"></i>
+                </button>
+            </span>
+        </div>
+    </form>
+</div>

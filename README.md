@@ -1,6 +1,8 @@
 # Bluetooth Advertising Framework
 ###### La Trobe University – Team Skylake associated with Shine Technologies
 
+##### Awarded Top Team Group Award for the 24th Annual La Trobe University Engineering and IT Show Case
+
 ### Summary
 This group project is about to build a web management console to manage the advertisements being pushed to beacons; as well as a simple mobile application to display the advertisements. Includes:
 
